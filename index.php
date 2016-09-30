@@ -119,11 +119,11 @@
         <div class="contenttext">
           <?php
             echo $contenttext;
-            print_r($images);
           ?>
         </div>
         <div class="masonry">
           <?php
+            shuffle($images);
             foreach ($images as $imagekey => $imagevalue) {
               echo $imagevalue;
             };
