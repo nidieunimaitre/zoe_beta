@@ -213,7 +213,7 @@ div {
 
 .menuitem {
   display: inline-block;
-  min-width: 50%;
+  min-width: 55%;
 }
 
 .showtextitem {
