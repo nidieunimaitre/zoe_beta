@@ -50,14 +50,12 @@
       $dirsortet = array();
 
       foreach ($scanndir as $dirval) {
-        $dirfullname = preg_split("_", $dirval, 1);
-        if (count($dirfullname)>1) {
-          $dirsortet[] = $dirfullname[1];
+        if (strpos($dirval,"_")) {
+          $dirsortet[] = substr(strstr($dirval, '_'), 1);
         } else {
-          $dirsortet[] = $dirfullname[0];
+          $dirsortet[] = $dirval;
         }
       };
-
       foreach ($dirsortet as $pagename) {
         $txtbtnval = '+';
         $rotate = "";
@@ -94,7 +92,7 @@
 
     ?>
     <div class="container">
-
+      <?php print_r($dirfullname); ?>
       <!-- header -->
       <div class="header">
         <div class="headertitle hvr-wobble-skew">
