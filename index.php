@@ -123,7 +123,6 @@
         </div>
         <div class="masonry">
           <?php
-            shuffle($images);
             foreach ($images as $imagekey => $imagevalue) {
               echo $imagevalue;
             };
