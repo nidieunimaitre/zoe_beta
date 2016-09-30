@@ -337,8 +337,9 @@ div {
   }
   .contenttext {
     margin-right: 5%;
+    position: absolute;
     <?php if ($showtext): ?>
-      padding-left: -3px;
+      margin-left: -3px;
     <?php endif; ?>
   }
   .masonry { /* Masonry container */
