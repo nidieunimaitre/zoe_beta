@@ -261,7 +261,10 @@ div {
   -moz-column-gap: 1px; /* Firefox */
   column-gap: 1px;
 
-  padding-right: 3px;
+  <?php if ($showtext): ?>
+    margin-right: 3px;
+  <?php endif; ?>
+
   margin-top: 5px;
   z-index: 900;
 
@@ -340,7 +343,9 @@ div {
     -moz-column-count:1; /* Firefox */
     column-count: 1;
 
-    padding-left: 3px;
+    <?php if ($showtext): ?>
+      margin-left: 3px;
+    <?php endif; ?>
   }
 
   .footer {
