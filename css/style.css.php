@@ -276,7 +276,7 @@ div {
   margin-bottom: 0px;
   margin-top: -5px;
 
-  margin-right: 3px;
+  padding-right: 3px;
 
 <?php if (!$showtext): ?>
   -webkit-animation-name: fadein;
@@ -344,7 +344,7 @@ div {
   }
 
   .item {
-    margin-left: 2px;
+    padding-left: 2px;
   }
 
   .footer {
