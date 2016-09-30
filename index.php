@@ -119,6 +119,7 @@
         <div class="contenttext">
           <?php
             echo $contenttext;
+            print_r($images);
           ?>
         </div>
         <div class="masonry">
