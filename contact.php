@@ -5,7 +5,7 @@
 		$message = $_POST['message'];
 		$human = intval($_POST['human']);
 		$from = "zoe.wtf message";
-		$to = 'raphael.guetlin@gmail.com';
+		$to = 'zoe@zoe.wtf';
 		$subject = 'message from zoe.wtf';
 
 		$body ="From: $name\n E-Mail: $email\n Message:\n $message";

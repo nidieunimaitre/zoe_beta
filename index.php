@@ -47,7 +47,18 @@
       // create menuitems
       $menuitems = array();
       $menunames = array();
-      foreach ($scanndir as $pagename) {
+      $dirsortet = array();
+
+      foreach ($scanndir as $dirval) {
+        $dirfullname = preg_split("_", $dirval, 1);
+        if (count($dirfullname)>1) {
+          $dirsortet[] = $dirfullname[1];
+        } else {
+          $dirsortet[] = $dirfullname[0];
+        }
+      };
+
+      foreach ($dirsortet as $pagename) {
         $txtbtnval = '+';
         $rotate = "";
         $txtbtn = true;
