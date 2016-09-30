@@ -338,9 +338,6 @@ div {
   .contenttext {
     margin-right: 5%;
     position: absolute;
-    <?php if ($showtext): ?>
-      margin-left: -3px;
-    <?php endif; ?>
   }
   .masonry { /* Masonry container */
     -webkit-column-count: 1; /* Chrome, Safari, Opera */
