@@ -262,7 +262,6 @@ div {
   column-gap: 1px;
 
   margin-right: 0px;
-  padding-right: 3px;
   margin-top: 5px;
   z-index: 900;
 
@@ -276,6 +275,8 @@ div {
   width: 100%;
   margin-bottom: 0px;
   margin-top: -5px;
+
+  margin-right: 3px;
 
 <?php if (!$showtext): ?>
   -webkit-animation-name: fadein;
@@ -340,8 +341,10 @@ div {
     -webkit-column-count: 1; /* Chrome, Safari, Opera */
     -moz-column-count:1; /* Firefox */
     column-count: 1;
+  }
 
-    padding-left: 3px;
+  .item {
+    margin-left: 2px;
   }
 
   .footer {
