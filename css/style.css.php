@@ -148,6 +148,7 @@ p {
   background-color: inherit;
   border: 0 none;
   overflow: hidden;
+  outline: none;
 }
 .contactform input[type=text] {
   padding: 0;
@@ -156,6 +157,7 @@ p {
   width: 50%;
   background-color: inherit;
   border: 0 none;
+  outline: none;
 }
 .contactform input[type=submit] {
   width: 10%;
@@ -164,6 +166,7 @@ p {
   text-align: left;
   margin-left: 0;
   padding-left: 0;
+  outline: none;
 }
 
 /* inline-block width fix */
