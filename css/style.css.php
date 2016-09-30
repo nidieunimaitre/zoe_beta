@@ -174,7 +174,6 @@ div {
 .container {
   width: 95%;
   margin-left: 2.5%;  /* (100% - 95%) / 2 = 2.5%  */
-  overflow: auto;
 }
 
 .header {
@@ -277,7 +276,6 @@ div {
   display: inline-block;
   width: 100%;
   margin-bottom: 0px;
-  margin-top: -5px;
 
 <?php if (!$showtext): ?>
   -webkit-animation-name: fadein;
