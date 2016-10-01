@@ -47,16 +47,12 @@
       // create menuitems
       $menuitems = array();
       $menunames = array();
-      $dirsortet = array();
 
-      foreach ($scanndir as $dirval) {
-        if (strpos($dirval,"_")) {
-          $dirsortet[] = substr(strstr($dirval, '_'), 1);
-        } else {
-          $dirsortet[] = $dirval;
-        }
-      };
-      foreach ($dirsortet as $pagename) {
+      $menuseq = explode("\n", file_get_contents("sortmenu.txt"));
+      array_pop($menuseq);
+      $dirsorted = array_unique(array_merge($menuseq, $scanndir));
+
+      foreach ($dirsorted as $pagename) {
         $txtbtnval = '+';
         $rotate = "";
         $txtbtn = true;
@@ -92,7 +88,6 @@
 
     ?>
     <div class="container">
-      <?php print_r($dirfullname); ?>
       <!-- header -->
       <div class="header">
         <div class="headertitle hvr-wobble-skew">
