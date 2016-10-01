@@ -20,9 +20,9 @@
   $transbgprop = "";
   if ($showtext) {
     $hidetextprop = "";
-    $transbgprop = "opacity: 0.3";
-    $imgblurprop = "-webkit-filter: blur(3px); \n".
-                   "filter: blur(3px); \n";
+    $transbgprop = "opacity: 0.2";
+    $imgblurprop = "-webkit-filter: blur(2px); \n".
+                   "filter: blur(2px); \n";
   }
 
   // set keyframes for animation
@@ -183,6 +183,7 @@ div {
   position: fixed;
   width: 95%;
   top: 0;
+  z-index: 1100;
 }
 
 .headertitle {
@@ -259,9 +260,9 @@ div {
   -moz-column-count: <?php echo $imagecols; ?>; /* Firefox */
   column-count: <?php echo $imagecols; ?>;
 
-  -webkit-column-gap: 1px; /* Chrome, Safari, Opera */
-  -moz-column-gap: 1px; /* Firefox */
-  column-gap: 1px;
+  -webkit-column-gap: 6px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 6px; /* Firefox */
+  column-gap: 6px;
 
   <?php if ($showtext): ?>
     margin-right: 3px;
@@ -276,9 +277,8 @@ div {
 }
 
 .item { /* Masonry bricks or child elements */
-  display: inline-block;
-  width: 100%;
   margin-bottom: 0px;
+  margin-right: 3px;
 
 <?php if (!$showtext): ?>
   -webkit-animation-name: fadein;
@@ -340,17 +340,13 @@ div {
     margin-right: 5%;
     position: absolute;
     <?php if ($showtext): ?>
-      margin-left: -1px;
+      margin-left: 0px;
     <?php endif; ?>
   }
   .masonry { /* Masonry container */
     -webkit-column-count: 1; /* Chrome, Safari, Opera */
     -moz-column-count:1; /* Firefox */
     column-count: 1;
-
-    <?php if ($showtext): ?>
-      margin-left: 3px;
-    <?php endif; ?>
   }
 
   .footer {
