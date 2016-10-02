@@ -1,1 +1,3 @@
-Posterslam vis-com HGK
+Posterslam, a student’s project from the institute vis-com at HGK. <br>
+Check out other submissions on <a href="http://posterslam.ch/" class="hvr-wobble-skew">the posterslam website</a> <br>
+Photography and photoshop

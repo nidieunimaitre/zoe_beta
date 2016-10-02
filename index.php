@@ -35,6 +35,9 @@
       $dir = 'portfolio';
       $_SESSION["dir"] = $dir;
       $scanndir = array_diff(scandir($dir), array('..', '.','.DS_Store'));
+      $scanndir = array_map('trim', $scanndir);
+      $convert_str_utf8 = function($value) { return iconv(mb_detect_encoding($value), 'UTF-8',$value); };
+      $scanndir = array_map($convert_str_utf8, $scanndir);
 
       // set background-color
       if ($pagetype == "project") {
@@ -46,11 +49,14 @@
 
       // create menuitems
       $menuitems = array();
-      $menunames = array();
+      //$menunames = array();
 
-      $menuseq = explode("\n", file_get_contents("sortmenu.txt"));
-      array_pop($menuseq);
+      $menuseq = explode(",", file_get_contents("sortmenu.txt"));
+      $menuseq = array_map('trim', $menuseq);
+
       $dirsorted = array_unique(array_merge($menuseq, $scanndir));
+      $dirsorted = array_values($dirsorted);
+      $_SESSION["dirsorted"] = $dirsorted;
 
       foreach ($dirsorted as $pagename) {
         $txtbtnval = '+';
@@ -66,7 +72,6 @@
         $pagetypemenu = "project";
         $menuitems[] = "<li><div class='menuitem hvr-wobble-skew'><a href='?page=$pagename&pagetype=$pagetypemenu&showtext=$txtbtnfix&prevpage=$page'>$pagename</a>".
                        "</div><div class="."'showtextitem $rotate'"."><a href='?page=$pagename&pagetype=$pagetypemenu&showtext=$txtbtn&prevpage=$page'>$txtbtnval</a></div></li>";
-        $menunames[] = $pagename;
       };
 
       // create masonry
@@ -82,8 +87,8 @@
       $contenttext = file_get_contents("$dir/$page/text.txt");
 
       // set topmargin content
-      $contentpos = array_search($page, $menunames);
-      $contentmargin = ($contentpos * 25.6) + 2;
+      $contentpos = array_search($page, $dirsorted);
+      $contentmargin = ($contentpos * 25.6); // evtl +2
       $_SESSION["contentmargin"] = $contentmargin;
 
     ?>
@@ -97,7 +102,7 @@
           <h1>selected works</h1>
         </div>
         <div class="headercontact hvr-wobble-skew">
-          <a href="?page=contact&pagetype=main&showtext=1"><h1>contact</h1></a>
+          <a href="?page=contact&pagetype=main"><h1>contact</h1></a>
         </div>
         <!-- menu -->
         <div class="menu">

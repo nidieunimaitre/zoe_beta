@@ -1,2 +1,2 @@
-Posters for Cinéclub @ OFF
-Subscribe for newsletter at info@offbar.ch
+Posters for Cinéclub @ OFF <br>
+Subscribe for newsletter at <div class="customlink hvr-wobble-skew"><a href="//offbar.ch">offbar</a></div> <br>

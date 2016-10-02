@@ -9,6 +9,7 @@
   $colors = $_SESSION["colors"];
   $prevpage = $_SESSION["prevpage"];
   $contentmargin = $_SESSION["contentmargin"];
+  $dirsorted = $_SESSION["dirsorted"];
 
   //$colors = array("#FF00FF","#00FFFF","#FFFF00","#FF0000","#00FF00","#0000FF");
   shuffle($colors);
@@ -24,6 +25,8 @@
     $imgblurprop = "-webkit-filter: blur(2px); \n".
                    "filter: blur(2px); \n";
   }
+
+  $contenttopmobile = 20+(3*26)+(count($dirsorted)*25.6)+25.6;
 
   // set keyframes for animation
   // backgroundanimation
@@ -122,6 +125,10 @@ a:hover {
   text-shadow: 0 0 5px rgba(0,0,0,0.5);*/
 }
 
+.customlink {
+  display: inline-block;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: inherit;
   font-weight: 500;
@@ -160,7 +167,7 @@ p {
   outline: none;
 }
 .contactform input[type=submit] {
-  width: 10%;
+  width: 20%;
   border: 0 none;
   background-color: inherit;
   text-align: left;
@@ -216,7 +223,7 @@ div {
 
 .menuitem {
   display: inline-block;
-  min-width: 110px;
+  min-width: 125px;
 }
 
 .showtextitem {
@@ -231,10 +238,8 @@ div {
 }
 
 .content {
-  display: inline-block;
   margin-left: 20%;
   margin-top: <?php echo $contentmargin+52; ?>px;
-  width: 80%;
 }
 
 .contenttext {
@@ -263,10 +268,6 @@ div {
   -webkit-column-gap: 6px; /* Chrome, Safari, Opera */
   -moz-column-gap: 6px; /* Firefox */
   column-gap: 6px;
-
-  <?php if ($showtext): ?>
-    margin-right: 3px;
-  <?php endif; ?>
 
   margin-top: 5px;
   z-index: 900;
@@ -307,7 +308,16 @@ div {
 
   .header {
     position: relative;
-    width: 100%;
+    <?php if ($showtext): ?>
+      position: fixed;
+      width: 95%;
+    <?php else: ?>
+      width: 100%;
+    <?php endif; ?>
+    margin-top: 20px;
+  }
+  .header h1 {
+    line-height: 0.5;
   }
   .headertitle {
     width: 100%;
@@ -332,26 +342,39 @@ div {
   }
 
   .content {
-    width: 97.5%;
+    <?php if ($showtext): ?>
+      width: 100%;
+    <?php else: ?>
+      width: 97.5%;
+    <?php endif; ?>
     margin-left: 0;
     margin-top: 15px;
   }
   .contenttext {
     margin-right: 5%;
-    position: absolute;
     <?php if ($showtext): ?>
       margin-left: 0px;
+      position: fixed;
+      /*margin-top: <?php echo $contenttopmobile ?>px;*/
     <?php endif; ?>
   }
   .masonry { /* Masonry container */
     -webkit-column-count: 1; /* Chrome, Safari, Opera */
     -moz-column-count:1; /* Firefox */
     column-count: 1;
+
+    <?php if ($showtext): ?>
+      margin-top: <?php echo $contenttopmobile+3; ?>px;
+      margin-right: 6px;
+    <?php endif; ?>
   }
 
   .footer {
     position: relative;
     width: 97.5%;
+    <?php if ($page=="zoe" || $page==""): ?>
+      position: fixed;
+    <?php endif; ?>
   }
 
 };
